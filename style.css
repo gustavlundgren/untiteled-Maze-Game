@@ -1,0 +1,16 @@
+*, 
+*:active,
+*:hover{
+    margin: 0px;
+    padding: 0px;
+}
+
+#canvas{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 800px;
+    background-color: silver;
+}
