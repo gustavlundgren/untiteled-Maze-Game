@@ -21,6 +21,8 @@ class Game{
         this.water = []
 
         this.player = new Player(this.water, this.grass)
+
+        this.enemy = new Enemy()
     }
 
     update(){
@@ -73,10 +75,10 @@ class Game{
         if(this.gridX > 700 && this.gridY == 700){
             this.grass.forEach(object => object.draw())
             this.water.forEach(object => object.draw())
-            this.player.draw()
 
-            ctx.fillRect(290, 0, 10, 50)
-            ctx.fillRect(500, 0, 10, 50)
+            this.player.draw(ctx)
+
+            this.enemy.draw(ctx)
         }  
     }
 }
@@ -123,7 +125,7 @@ class Player{
         this.y += this.yVel        
     }
 
-    draw(){
+    draw(ctx){
         ctx.fillStyle = 'black'
         ctx.fillRect(this.x, this.y, this.size, this.size)
     }
@@ -131,16 +133,19 @@ class Player{
 
 class Enemy{
     constructor(){
-        x = 100
-        y = 100
+        this.x = 400
+        this.y = 100
     }
 
     update(){
 
     }
 
-    draw(){
-
+    draw(ctx){
+        ctx.beginPath()
+        ctx.arc(this.x, this.y, 20, 0, 2*Math.PI)
+        ctx.fillStyle = 'red'
+        ctx.fill()
     }
 }
 
