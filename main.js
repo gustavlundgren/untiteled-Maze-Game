@@ -13,6 +13,8 @@ class Game{
         this.gridX = 0
         this.pos = {x: 0, y:0}
         this.drawGrid = true
+
+        this.player = new Player()
     }
 
     update(){
@@ -43,13 +45,15 @@ class Game{
 
     draw(ctx){
         ctx.strokeRect(this.pos.x, this.pos.y, 100, 100)
+        this.player.draw()
     }
 }
 
 class Player{
     constructor(){
         //skapa animation in på banan
-        this.x = canvas.width / 2
+        this.size = 20
+        this.x = canvas.width / 2 - this.size / 2
         this.y = canvas.height - 50
 
     }
@@ -59,7 +63,7 @@ class Player{
     }
 
     draw(){
-
+        ctx.fillRect(this.x, this.y, this.size, this.size)
     }
 }
 
