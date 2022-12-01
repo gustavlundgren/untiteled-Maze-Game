@@ -3,7 +3,7 @@ class Enemy{
         this.x = 380
         this.y = 115
         this.player = player
-        this.size = 40
+        this.size = this.size = canvas.height / cols
         this.xVel = 0
         this.yVel = 0
     }
@@ -39,4 +39,3 @@ class Enemy{
         ctx.fillRect(this.x, this.y, this.size, this.size)
     }
 }
-

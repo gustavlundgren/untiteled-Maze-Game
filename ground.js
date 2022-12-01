@@ -21,7 +21,7 @@ class Grass {
     }
 
     wallCheck() {
-        if(Math.random()*1 < 0){
+        if(Math.random()*1 < .0){
             this.wall = true
             this.col = 'black'
         }
@@ -97,7 +97,7 @@ class Grass {
     playerCheck() {
         if (collisionCheck(this.player, this)){
             this.playerPos = true
-            this.col = 'pink'
+            //this.col = 'pink'
         }else if (this.wall){
             this.playerPos = false
             this.col = 'black'
@@ -107,18 +107,14 @@ class Grass {
         }
 
         if (this.enemyPos){
-            this.col = 'blue'
+            // this.col = 'blue'
         }
     }
 
     enemyCheck() {
         if (collisionCheck(this.enemy, this)){
-            /*if(this.wall){
-                this.enemy.xVel = -this.enemy.xVel
-                this.enemy.yVel = -this.enemy.yVel
-            }*/
             this.enemyPos = true
-            this.col = 'blue'
+            //this.col = 'blue'
         }else if (this.wall){
             this.enemyPos = false
             this.col = 'black'
@@ -128,7 +124,7 @@ class Grass {
         }
 
         if (this.playerPos){
-            this.col = 'pink'
+            //this.col = 'pink'
         }
     }
 }

@@ -4,8 +4,8 @@ const ctx = canvas.getContext('2d')
 canvas.width = 800
 canvas.height = 800
 
-let cols = 6
-let rows = 6
+let cols = 15
+let rows = 15
 
 let setup = true
 

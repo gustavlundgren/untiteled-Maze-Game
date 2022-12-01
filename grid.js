@@ -39,8 +39,8 @@ class Grid {
         this.grid[3][5].wall = false
         this.grid[2][5].wall = false
 
+        this.grid[2][3].wall = true
         this.grid[3][3].wall = true
-        this.grid[3][5].wall = true
     }
 
     update() {
@@ -82,17 +82,25 @@ class Grid {
     }
 
     noWalk(e){
-        if (e.wall){
+        let playerI = Math.floor(this.player.x / e.size)
+        let playerJ = Math.floor(this.player.y / e.size)
 
+        if (e.wall){
             if (e.i > 0){
-                if (collisionCheck(this.player, e) && this.grid[e.i - 1][e.j].playerPos){
+                if (collisionCheck(this.player, e) &&
+                 this.grid[e.i - 1][e.j].playerPos &&
+                 playerJ == e.j
+                 ){
                     this.player.x = e.x - this.player.size 
                     console.log('left');
                 }
             }
 
             if (e.i < this.cols - 1){
-                if (collisionCheck(this.player, e) && this.grid[e.i + 1][e.j].playerPos){
+                if (collisionCheck(this.player, e) && 
+                this.grid[e.i + 1][e.j].playerPos && 
+                !this.grid[e.i + 1][e.j + 1].playerPos
+                ){
                     this.player.x = e.x + e.size
                     console.log('right');
                 }
@@ -106,7 +114,7 @@ class Grid {
             }
 
             if (e.j < this.rows - 1){
-                if (collisionCheck(this.player, e) && this.grid[e.i][e.j + 1].playerPos){
+                if (collisionCheck(this.player, e) && this.grid[e.i][e.j + 1].playerPos && !this.grid[e.i + 1][e.j].playerPos){
                     this.player.y = e.y + e.size
                     console.log('down')
                 }
