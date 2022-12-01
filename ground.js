@@ -20,7 +20,7 @@ class Grass {
         this.enemyPos
     }
 
-    wallCheck(){
+    wallCheck() {
         if(Math.random()*1 < .4){
             this.wall = true
             this.col = 'black'
@@ -38,7 +38,7 @@ class Grass {
         ctx.strokeRect(this.x, this.y, this.size, this.size)
     }
 
-    addNeighbors(grid){
+    addNeighbors(grid) {
         this.grid = grid
 
         //raka
@@ -70,7 +70,7 @@ class Grass {
         }
     }
 
-    startCheck(){
+    startCheck() {
         canvas.addEventListener('click', e =>{
 
             let x = getCursorPosition(canvas, e)[0]
@@ -82,7 +82,7 @@ class Grass {
         })
     }
 
-    endCheck(){
+    endCheck() {
         canvas.addEventListener('click', e =>{
 
             let x = getCursorPosition(canvas, e)[0]
@@ -94,37 +94,55 @@ class Grass {
         })
     }
 
-    playerCheck(){
-        if(collisionCheck(this.player, this)){
+    playerCheck() {
+        if (collisionCheck(this.player, this)){
             this.playerPos = true
             this.col = 'pink'
+        }else if (this.wall){
+            this.playerPos = false
+            this.col = 'black'
         }else{
             this.playerPos = false
             this.col = 'green'
         }
+
+        if (this.enemyPos){
+            this.col = 'blue'
+        }
     }
 
-    enemyCheck(){
-        if(collisionCheck(this.enemy, this)){
+    enemyCheck() {
+        if (collisionCheck(this.enemy, this)){
+            /*if(this.wall){
+                this.enemy.xVel = -this.enemy.xVel
+                this.enemy.yVel = -this.enemy.yVel
+            }*/
             this.enemyPos = true
             this.col = 'blue'
+        }else if (this.wall){
+            this.enemyPos = false
+            this.col = 'black'
         }else{
             this.enemyPos = false
-            this.col = 'green'
+            this.col = 'green' 
+        }
+
+        if (this.playerPos){
+            this.col = 'pink'
         }
     }
 }
 
-class Water extends Grass{
-    constructor(i, j, size){
+class Water extends Grass {
+    constructor(i, j, size) {
         super(i, j, size)
     }
 
-    update(){
+    update() {
         super.update()
     }
 
-    draw(){
+    draw() {
         super.draw('blue')
     }
 }

@@ -8,7 +8,8 @@ class Player{
         this.y = canvas.height - 50
         this.xVel = 0
         this.yVel = 0
-        this.friction = 0.94
+        this.friction = .9
+        this.noWalk = undefined
     }
 
     update(){
@@ -29,8 +30,35 @@ class Player{
         this.xVel *= this.friction
         this.yVel *= this.friction
 
+        if (Math.abs(0 - this.xVel) < 0.2){
+            this.xVel = 0
+        }
+
+        if (Math.abs(0 - this.yVel) < 0.2){
+            this.yVel = 0
+        }
+
+        // console.log(this.xVel)
+        // console.log(this.yVel)
+
         this.x += this.xVel
-        this.y += this.yVel        
+        this.y += this.yVel
+        
+        if (this.x + this.size >= canvas.width){
+            this.x = canvas.width - this.size
+        }
+
+        if (this.x <= 0){
+            this.x = 0
+        }
+
+        if (this.y + this.size >= canvas.height){
+            this.y = canvas.height - this.size
+        }
+
+        if (this.y <= 0){
+            this.y = 0
+        }   
     }
 
     shoot(){

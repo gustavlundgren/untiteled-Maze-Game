@@ -41,11 +41,10 @@ class Game{
 
 const game = new Game()
 
-let fps = 60
+let fps = 1000
 
 function main(){
-    ctx.clearRect(0, 0, canvas.width, canvas.height)
-   
+    // ctx.clearRect(0, 0, canvas.width, canvas.height)
     if(setup){
         game.setup()
         setup = false
