@@ -87,24 +87,20 @@ class Grid {
 
     noWalk(e){
         if (e.wall){
-            if (this.player.y + this.player.size > e.y && this.player.y + this.player.size < e.y + e.size){
-                if (collisionCheck(this.player, e) && this.player.xVel > 0){
-                    this.player.x = e.x - this.player.size 
-                }
-
-                if (collisionCheck(this.player, e) && this.player.xVel < 0){
-                    this.player.x = e.x + e.size 
-                }
+            if (collisionCheck(this.player, e) && this.player.xVel > 0){
+                this.player.x = e.x - this.player.size 
             }
 
-            if (this.player.x + this.player.size > e.x && this.player.x + this.player.size < e.x + e.size){
-                if (collisionCheck(this.player, e) && this.player.yVel > 0){
-                    this.player.y = e.y - this.player.size 
-                }
+            if (collisionCheck(this.player, e) && this.player.xVel < 0){
+                this.player.x = e.x + e.size 
+            }
 
-                if (collisionCheck(this.player, e) && this.player.yVel < 0){
-                    this.player.y = e.y + e.size 
-                }
+            if (collisionCheck(this.player, e) && this.player.yVel > 0){
+                this.player.y = e.y - this.player.size 
+            }
+
+            if (collisionCheck(this.player, e) && this.player.yVel < 0){
+                this.player.y = e.y + e.size 
             }
         }
     }
