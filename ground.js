@@ -21,7 +21,7 @@ class Grass {
     }
 
     wallCheck() {
-        if(Math.random()*1 < .4){
+        if(Math.random()*1 < 0){
             this.wall = true
             this.col = 'black'
         }
