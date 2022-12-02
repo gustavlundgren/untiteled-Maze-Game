@@ -4,8 +4,14 @@ const ctx = canvas.getContext('2d')
 canvas.width = 800
 canvas.height = 800
 
+let lastTime = 0
+
 let cols = 15
 let rows = 15
+
+let playerTurn = true
+let turnTime = 250
+let timer = 0
 
 let setup = true
 
@@ -43,8 +49,19 @@ const game = new Game()
 
 let fps = 1000
 
-function main(){
+function main(timestamp){
     // ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+    let deltatime = timestamp - lastTime
+    lastTime = timestamp
+
+    timer += deltatime
+
+    if (timer > turnTime){
+        playerTurn = true
+        timer = 0
+    }
+
     if(setup){
         game.setup()
         setup = false
@@ -53,9 +70,11 @@ function main(){
     game.update()
 
     game.draw()
+
+    
     
     setTimeout(() => {
       requestAnimationFrame(main)  
     }, 1000 / fps)
 }
-main()
+main(0)

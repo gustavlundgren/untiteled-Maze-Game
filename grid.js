@@ -45,8 +45,26 @@ class Grid {
 
     update() {
         // this.grid.forEach(e => e.forEach(elt => elt.enemyCheck()))
-        this.grid.forEach(e => e.forEach(elt => elt.playerCheck()))
-        // this.grid.forEach(e => e.forEach(elt => this.noWalk(elt)))
+
+        if (this.player.left &&
+            !this.grid[this.player.i - 1][this.player.j].wall) {
+            this.player.i--
+        }
+
+        if (this.player.right &&
+            !this.grid[this.player.i + 1][this.player.j].wall) {
+            this.player.i++
+        }
+
+        if (this.player.up &&
+            !this.grid[this.player.i][this.player.j - 1].wall) {
+            this.player.j--
+        }
+
+        if (this.player.down &&
+            !this.grid[this.player.i][this.player.j + 1].wall) {
+            this.player.j++
+        }
     }
 
     setStart() {

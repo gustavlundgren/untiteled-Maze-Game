@@ -32,6 +32,10 @@ class Grass {
             this.col = col
         }
 
+        if (this.wall){
+            this.col = 'black'
+        }
+
         ctx.fillStyle = this.col
 
         ctx.fillRect(this.x, this.y, this.size, this.size)
@@ -92,29 +96,6 @@ class Grass {
                 this.end = true
             }
         })
-    }
-
-    playerCheck() {
-        /*
-        if (collisionCheck(this.player, this)){
-            this.playerPos = true
-            this.col = 'pink'
-        }else if (this.wall){
-            this.playerPos = false
-            this.col = 'black'
-        }else{
-            this.playerPos = false
-            this.col = 'green'
-        }
-
-        if (this.enemyPos){
-            // this.col = 'blue'
-        } 
-        */
-
-        if (this.playerPos){
-            this.col = 'pink'
-        }
     }
 
     enemyCheck() {
