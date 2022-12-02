@@ -4,76 +4,36 @@ class Player{
     constructor(water, grass){
         //skapa animation in på banan
         this.size = canvas.height / cols
-        this.x = canvas.width / 2 - this.size / 2
-        this.y = canvas.height - 50
+        this.x 
+        this.y 
         this.xVel = 0
         this.yVel = 0
         this.friction = .9
         this.noWalk = undefined
-        this.i 
-        this.j
+        this.i = rows - 1
+        this.j = cols - 1
+        this.up
+        this.down
+        this.right
+        this.left
     }
 
-    update(){
-        // //spelar rörelse
-        // if(keys[65]){
-        //     this.xVel = -3
-        // }
-        // if(keys[68]){
-        //     this.xVel = 3
-        // }
-        // if(keys[87]){
-        //     this.yVel = -3
-        // }
-        // if(keys[83]){
-        //     this.yVel = 3
-        // }
-
-        // this.xVel *= this.friction
-        // this.yVel *= this.friction
-
-        // if (Math.abs(0 - this.xVel) < 0.2){
-        //     this.xVel = 0
-        // }
-
-        // if (Math.abs(0 - this.yVel) < 0.2){
-        //     this.yVel = 0
-        // }
-
-        // // console.log(this.xVel)
-        // // console.log(this.yVel)
-
-        // this.x += this.xVel
-        // this.y += this.yVel
-        
-        // if (this.x + this.size >= canvas.width){
-        //     this.x = canvas.width - this.size
-        // }
-
-        // if (this.x <= 0){
-        //     this.x = 0
-        // }
-
-        // if (this.y + this.size >= canvas.height){
-        //     this.y = canvas.height - this.size
-        // }
-
-        // if (this.y <= 0){
-        //     this.y = 0
-        // } 
-        
-        if(keys[65]){
-            this.x -= this.size
+    update(){        
+        if(keys[65] && this.i > 0){
+            this.i--
         }
-        if(keys[68]){
-            this.x += this.size
+        if(keys[68] && this.i < cols - 1){
+            this.i++
         }
-        if(keys[87]){
-            this.y -= this.size
+        if(keys[87] && this.j > 0){
+            this.j--
         }
-        if(keys[83]){
-            this.y += this.size
+        if(keys[83] && this.j < rows - 1){
+            this.j++
         }
+
+        this.x = this.i * this.size
+        this.y = this.j * this.size
     }
 
     shoot(){

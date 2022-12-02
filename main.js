@@ -9,7 +9,7 @@ let rows = 15
 
 let setup = true
 
-class Game{
+class Game{ 
     constructor(){
         this.grass = []
         this.water = []

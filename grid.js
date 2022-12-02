@@ -44,9 +44,9 @@ class Grid {
     }
 
     update() {
-        this.grid.forEach(e => e.forEach(elt => elt.enemyCheck()))
+        // this.grid.forEach(e => e.forEach(elt => elt.enemyCheck()))
         this.grid.forEach(e => e.forEach(elt => elt.playerCheck()))
-        this.grid.forEach(e => e.forEach(elt => this.noWalk(elt)))
+        // this.grid.forEach(e => e.forEach(elt => this.noWalk(elt)))
     }
 
     setStart() {
@@ -82,8 +82,6 @@ class Grid {
     }
 
     noWalk(e){
-        let playerI = Math.floor(this.player.x / e.size)
-        let playerJ = Math.floor(this.player.y / e.size)
 
         if (e.wall){
             if (e.i > 0){

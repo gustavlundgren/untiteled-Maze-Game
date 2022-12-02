@@ -95,9 +95,10 @@ class Grass {
     }
 
     playerCheck() {
+        /*
         if (collisionCheck(this.player, this)){
             this.playerPos = true
-            //this.col = 'pink'
+            this.col = 'pink'
         }else if (this.wall){
             this.playerPos = false
             this.col = 'black'
@@ -108,6 +109,11 @@ class Grass {
 
         if (this.enemyPos){
             // this.col = 'blue'
+        } 
+        */
+
+        if (this.playerPos){
+            this.col = 'pink'
         }
     }
 
@@ -124,7 +130,7 @@ class Grass {
         }
 
         if (this.playerPos){
-            //this.col = 'pink'
+            this.col = 'pink'
         }
     }
 }
