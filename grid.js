@@ -35,12 +35,6 @@ class Grid {
                 this.grid[i][j].wallCheck()
             }
         }
-
-        this.grid[3][5].wall = false
-        this.grid[2][5].wall = false
-
-        this.grid[2][3].wall = true
-        this.grid[3][3].wall = true
     }
 
     update() {

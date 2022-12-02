@@ -71,8 +71,6 @@ function main(timestamp){
 
     game.draw()
 
-    
-    
     setTimeout(() => {
       requestAnimationFrame(main)  
     }, 1000 / fps)

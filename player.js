@@ -37,7 +37,6 @@ class Player{
             this.right = false
         }
 
-
         if (keys[87] && 
             this.j > 0 && playerTurn) {
             playerTurn = false
