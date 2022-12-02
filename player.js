@@ -6,10 +6,6 @@ class Player{
         this.size = canvas.height / cols
         this.x 
         this.y 
-        this.xVel = 0
-        this.yVel = 0
-        this.friction = .9
-        this.noWalk = undefined
         this.i = rows - 1
         this.j = cols - 1
         this.up
@@ -23,7 +19,6 @@ class Player{
             this.i > 0 &&
             playerTurn 
             ) {
-            // this.i--
             this.left = true
             playerTurn = false
             timer = 0
@@ -35,7 +30,6 @@ class Player{
             this.i < cols - 1 &&
             playerTurn
             ) {
-            // this.i++
             this.right = true
             playerTurn = false
             timer = 0
@@ -46,7 +40,6 @@ class Player{
 
         if (keys[87] && 
             this.j > 0 && playerTurn) {
-            // this.j--
             playerTurn = false
             timer = 0
             this.up = true
@@ -58,7 +51,6 @@ class Player{
             this.j < rows - 1 &&
             playerTurn
             ) {
-            // this.j++
             playerTurn = false
             timer = 0
             this.down = true
