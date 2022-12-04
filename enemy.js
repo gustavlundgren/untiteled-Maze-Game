@@ -1,11 +1,15 @@
 class Enemy{
     constructor(player){
-        this.x = 380
-        this.y = 115
+        this.i = 0
+        this.j = 0
+        this.size = canvas.height / cols
+        this.x
+        this.y
         this.player = player
-        this.size = this.size = canvas.height / cols
-        this.xVel = 0
-        this.yVel = 0
+        this.up
+        this.down
+        this.right
+        this.left
     }
 
     update(){
@@ -14,24 +18,48 @@ class Enemy{
         }
         
         // movement
-        if(this.x != this.player.x && this.x < this.player.x){
-            this.xVel = 2
+
+        if (this.player.up ||
+            this.player.down ||
+            this.player.right ||
+            this.player.left) {
+            console.log('hej');
+        /*
+        if (this.x != this.player.x && 
+            this.x < this.player.x) {
+            this.right = true
         }
         
-        if(this.x != this.player.x && this.x > this.player.x){
-            this.xVel = -2
+        if (this.x != this.player.x &&
+            this.x > this.player.x) {
+            this.left = true
         }
 
-        if(this.y != this.player.y && this.y < this.player.y){
-            this.yVel = 2
+        if (this.y != this.player.y && 
+            this.y < this.player.y) {
+            this.down = true
         }
 
-        if(this.y != this.player.y && this.y > this.player.y){
-            this.yVel = -2
+        if (this.y != this.player.y && 
+            this.y > this.player.y) {
+           this.up = true
+        }*/
+                 
         }
 
-        this.x += this.xVel
-        this.y += this.yVel
+
+
+        if (path.length > 0) {
+
+           for (let o = 2; o < path.length + 1; o++) {
+            this.i = path[path.length - o].i 
+            this.j = path[path.length - o].j 
+           }
+
+        }
+        
+        this.x = this.i * this.size
+        this.y = this.j * this.size
     }
 
     draw(){

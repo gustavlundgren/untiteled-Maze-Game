@@ -35,11 +35,17 @@ class Grid {
                 this.grid[i][j].wallCheck()
             }
         }
+
+        this.grid[this.cols - 1][this.rows - 1].wall = false
+        this.grid[0][0].wall = false
     }
 
     update() {
+        this.end = this.grid[this.player.i][this.player.j]
+        this.start = this.grid[0][0]
         // this.grid.forEach(e => e.forEach(elt => elt.enemyCheck()))
 
+        // player movement
         if (this.player.left &&
             !this.grid[this.player.i - 1][this.player.j].wall) {
             this.player.i--
@@ -59,6 +65,32 @@ class Grid {
             !this.grid[this.player.i][this.player.j + 1].wall) {
             this.player.j++
         }
+
+        // enemy movement
+
+        /*
+        if (this.enemy.left &&
+            !this.grid[this.enemy.i - 1][this.enemy.j].wall) {
+            this.enemy.i--
+        }
+
+        if (this.enemy.right &&
+            !this.grid[this.enemy.i + 1][this.enemy.j].wall) {
+            this.enemy.i++
+        }
+
+        if (this.enemy.up &&
+            !this.grid[this.enemy.i][this.enemy.j - 1].wall) {
+            this.enemy.j--
+        }
+
+        if (this.enemy.down &&
+            !this.grid[this.enemy.i][this.enemy.j + 1].wall) {
+            this.enemy.j++
+        }
+        */
+       
+        aStar(this.start, this.end)
     }
 
     setStart() {
