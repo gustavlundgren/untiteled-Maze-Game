@@ -10,6 +10,8 @@ class Enemy{
         this.down
         this.right
         this.left
+        this.nextMove = []
+        this.count = 1
     }
 
     update(){
@@ -23,40 +25,50 @@ class Enemy{
             this.player.down ||
             this.player.right ||
             this.player.left) {
-            console.log('hej');
-        /*
-        if (this.x != this.player.x && 
-            this.x < this.player.x) {
-            this.right = true
+
+            this.count++
+            console.log(this.count)
+
+            /*
+            if (this.x != this.player.x && 
+                this.x < this.player.x) {
+                this.right = true
+            }
+            
+            if (this.x != this.player.x &&
+                this.x > this.player.x) {
+                this.left = true
+            }
+
+            if (this.y != this.player.y && 
+                this.y < this.player.y) {
+                this.down = true
+            }
+
+            if (this.y != this.player.y && 
+                this.y > this.player.y) {
+            this.up = true
+            }*/
+
+            if (path.length > 0) {
+                if (this.nextMove.length > 0) {
+                    this.nextMove.splice(this.nextMove[0])
+                }
+
+                this.nextMove.push(path[path.length - this.count])
+            } 
+
+            // console.log(this.end)
+            console.log(this.nextMove)
+      
         }
         
-        if (this.x != this.player.x &&
-            this.x > this.player.x) {
-            this.left = true
-        }
-
-        if (this.y != this.player.y && 
-            this.y < this.player.y) {
-            this.down = true
-        }
-
-        if (this.y != this.player.y && 
-            this.y > this.player.y) {
-           this.up = true
-        }*/
-                 
-        }
-
-
-
-        if (path.length > 0) {
-
-           for (let o = 2; o < path.length + 1; o++) {
+        /*
+        for (let o = 2; o < path.length + 1; o++) {
             this.i = path[path.length - o].i 
             this.j = path[path.length - o].j 
-           }
-
         }
+        */
         
         this.x = this.i * this.size
         this.y = this.j * this.size

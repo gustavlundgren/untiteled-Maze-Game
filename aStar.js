@@ -12,9 +12,18 @@
 
     function aStar(start, end){
 
+
+
     if(firstRun){
         openSet.push(start)
-        console.log('A*')
+        console.log('A*')    
+        
+        if (path.length > 0){
+            for (let i = 0; i < path.length; i++) {
+                path.splice(path[i])
+            }
+        }
+        
         firstRun = false
     }
 

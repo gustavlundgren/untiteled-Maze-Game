@@ -91,6 +91,8 @@ class Grid {
         */
        
         aStar(this.start, this.end)
+
+        console.log(path)
     }
 
     setStart() {
