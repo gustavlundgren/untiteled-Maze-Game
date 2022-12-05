@@ -12,40 +12,53 @@
 
     function aStar(start, end){
 
-
-
     if(firstRun){
-        openSet.push(start)
-        console.log('A*')    
-        
+
+        /*
         if (path.length > 0){
             for (let i = 0; i < path.length; i++) {
                 path.splice(path[i])
             }
         }
-        
+        */
+
+        // console.log('väg ', path)
+        // console.log('stängd ', closedSet)
+        // console.log('öppen ', openSet)
+
+        console.log('start', start)
+
+        openSet.push(start)
+        console.log('A*')  
+
         firstRun = false
     }
 
-    //Vad som ska hända om det finns data i openSet, vilket det gör tills algoritmen är klar
+    // Vad som ska hända om det finns data i openSet, vilket det gör tills algoritmen är klar
     if(openSet.length > 0){
+
+        console.log('väg ', path)
+        // console.log('stängd ', closedSet)
+        console.log('öppen ', openSet)
 
         let winner = 0
 
-        //kollar vilken cell i openSet som har det bästa f värdet
+        // kollar vilken cell i openSet som har det bästa f värdet
         for(let i = 0; i < openSet.length; i++){
             if(openSet[i].f < openSet[winner].f){
                 winner = i
             }
         }
 
-        //sätter den nuvarande cellen för att valideras till den cellen som har bäst f värde
+        // sätter den nuvarande cellen för att valideras till den cellen som har bäst f värde
         current = openSet[winner]
 
-        //om den nuvarande cellen är den cellen som algoritmen hade som mål att nå så är algoritmen klar och kommer logga "Done!!"
+        // om den nuvarande cellen är den cellen som algoritmen hade som mål att nå så är algoritmen klar och kommer logga "Done!!"
         if(current === end){
 
             //hitta vägen 
+
+            /*
             temp = current
 
             path.push(temp)
@@ -54,23 +67,29 @@
                 path.push(temp.parent)
                 temp = temp.parent
             }
+            */
 
-            //console.log('Done!!')
-            //done = true
+            console.log('Done!!')
+            // done = true
+            // return path
+
+            // openSet.length = 0
+            // closedSet.length = 0
+            // path.length = 0
         }
 
-        //kör min funktion för att ta bort den nuvarande cellen från openSet efter att den har blivit validerad
+        // kör min funktion för att ta bort den nuvarande cellen från openSet efter att den har blivit validerad
         removeFromArray(openSet, current)
 
-        //lägger till den validerade cellen i closedSet efterssom den inte behövs mer
+        // lägger till den validerade cellen i closedSet efterssom den inte behövs mer
         closedSet.push(current)
 
     }else{
-        //console.log('fail')
-        //done = true
+        // console.log('fail')
+        // done = true
     }
 
-    //variabel för att hålla nuvarande cells grannar
+    // variabel för att hålla nuvarande cells grannar
     neighbors = current.neighbors
 
     for(let i = 0; i < neighbors.length; i++){
@@ -103,19 +122,19 @@
         }
     }
 
-    /*
+    // /*
     for(let i = 0; i < closedSet.length; i++){
         closedSet[i].draw('red')
     }
 
     for(let i = 0; i < openSet.length; i++){
-        openSet[i].draw('green')
+        openSet[i].draw('cyan')
     } 
 
     for(let i = 0; i < path.length; i++){
         path[i].draw('blue')
     }
-    */
+    // */
 }
 
 function heuristic(a, b){

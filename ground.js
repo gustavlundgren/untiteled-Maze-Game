@@ -60,6 +60,7 @@ class Grass {
         }
 
         // diagonala
+        /*
         if(this.i > 0 && this.j > 0){
             this.neighbors.push(grid[this.i - 1][this.j - 1])
         }
@@ -72,6 +73,7 @@ class Grass {
         if(this.i < cols - 1 && this.j > 0){
             this.neighbors.push(grid[this.i + 1][this.j - 1])
         }
+        */
     }
 
     startCheck() {

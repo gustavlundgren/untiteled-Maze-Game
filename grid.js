@@ -9,6 +9,7 @@ class Grid {
         this.start
         this.player = player
         this.enemy = enemy
+        this.moves = 0
     }
     // målar ut i draw för att skilja på skapandet och målningen eftersom denna körs en gång varje frame 
     draw(){        
@@ -41,8 +42,8 @@ class Grid {
     }
 
     update() {
-        this.end = this.grid[this.player.i][this.player.j]
-        this.start = this.grid[0][0]
+        // this.end = this.grid[this.player.i][this.player.j]
+        // this.start = this.grid[this.enemy.i][this.enemy.j]
         // this.grid.forEach(e => e.forEach(elt => elt.enemyCheck()))
 
         // player movement
@@ -67,40 +68,41 @@ class Grid {
         }
 
         // enemy movement
-
-        /*
-        if (this.enemy.left &&
-            !this.grid[this.enemy.i - 1][this.enemy.j].wall) {
-            this.enemy.i--
-        }
-
-        if (this.enemy.right &&
-            !this.grid[this.enemy.i + 1][this.enemy.j].wall) {
-            this.enemy.i++
-        }
-
-        if (this.enemy.up &&
-            !this.grid[this.enemy.i][this.enemy.j - 1].wall) {
-            this.enemy.j--
-        }
-
-        if (this.enemy.down &&
-            !this.grid[this.enemy.i][this.enemy.j + 1].wall) {
-            this.enemy.j++
-        }
-        */
        
-        aStar(this.start, this.end)
-
         if (this.player.up ||
             this.player.down ||
             this.player.right ||
             this.player.left) {
-            
-            if (this.enemy.nextMove.length > 0) {
-                this.enemy.i = this.enemy.nextMove[0].i 
-                this.enemy.j = this.enemy.nextMove[0].j
+
+            for (let i = 0; i < 1; i++){
+                
+
+                if (closedSet.length > 0) {
+                    //closedSet.splice(closedSet[0], 1)                    
+                }
+
+                //aStar(this.grid[this.enemy.i][this.enemy.j], this.grid[this.player.i][this.player.j])
+                console.log('1', locate(this.grid[this.enemy.i][this.enemy.j]), this.grid[this.player.i][this.player.j])
+                console.log('stängd ', closedSet[this.moves])
+                console.log('stängd längd ', closedSet.length)
+
+                // this.enemy.i = closedSet[this.moves].i
+                // this.enemy.j = closedSet[this.moves].j
+
+                this.moves++
+
+                // console.log(path)
+                // console.log(this.count)
             }
+            
+            // firstRun = true
+
+            // if (this.enemy.nextMove.i &&
+            //     this.enemy.nextMove.j) {
+
+            //     this.enemy.i = this.enemy.nextMove[0].i 
+            //     this.enemy.j = this.enemy.nextMove[0].j
+            // }
 
         }
     }
