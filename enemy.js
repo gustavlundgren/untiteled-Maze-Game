@@ -27,20 +27,6 @@ class Enemy{
             this.player.left) {
 
             this.count++
-            // console.log(this.count)
-
-            if (path.length > 0) {
-                // if (this.nextMove.length > 0) {
-                //     this.nextMove.splice(this.nextMove[0])
-                // }
-
-                // // console.log(path)
-                // // console.log(this.count)
-
-                // this.nextMove.push(path[path.length - this.count])
-            } 
-
-            // console.log(this.nextMove)
         }
 
         this.x = this.i * this.size

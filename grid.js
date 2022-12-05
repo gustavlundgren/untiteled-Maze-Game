@@ -75,35 +75,15 @@ class Grid {
             this.player.left) {
 
             for (let i = 0; i < 1; i++){
-                
 
-                if (closedSet.length > 0) {
-                    //closedSet.splice(closedSet[0], 1)                    
-                }
+                this.next = locate(this.grid[this.enemy.i][this.enemy.j], this.grid[this.player.i][this.player.j])[0]
 
-                //aStar(this.grid[this.enemy.i][this.enemy.j], this.grid[this.player.i][this.player.j])
-                console.log('1', locate(this.grid[this.enemy.i][this.enemy.j]), this.grid[this.player.i][this.player.j])
-                console.log('stängd ', closedSet[this.moves])
-                console.log('stängd längd ', closedSet.length)
-
-                // this.enemy.i = closedSet[this.moves].i
-                // this.enemy.j = closedSet[this.moves].j
+                this.enemy.i = this.next.i
+                this.enemy.j = this.next.j
 
                 this.moves++
 
-                // console.log(path)
-                // console.log(this.count)
             }
-            
-            // firstRun = true
-
-            // if (this.enemy.nextMove.i &&
-            //     this.enemy.nextMove.j) {
-
-            //     this.enemy.i = this.enemy.nextMove[0].i 
-            //     this.enemy.j = this.enemy.nextMove[0].j
-            // }
-
         }
     }
 
