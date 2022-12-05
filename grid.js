@@ -92,7 +92,17 @@ class Grid {
        
         aStar(this.start, this.end)
 
-        console.log(path)
+        if (this.player.up ||
+            this.player.down ||
+            this.player.right ||
+            this.player.left) {
+            
+            if (this.enemy.nextMove.length > 0) {
+                this.enemy.i = this.enemy.nextMove[0].i 
+                this.enemy.j = this.enemy.nextMove[0].j
+            }
+
+        }
     }
 
     setStart() {

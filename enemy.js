@@ -27,49 +27,22 @@ class Enemy{
             this.player.left) {
 
             this.count++
-            console.log(this.count)
-
-            /*
-            if (this.x != this.player.x && 
-                this.x < this.player.x) {
-                this.right = true
-            }
-            
-            if (this.x != this.player.x &&
-                this.x > this.player.x) {
-                this.left = true
-            }
-
-            if (this.y != this.player.y && 
-                this.y < this.player.y) {
-                this.down = true
-            }
-
-            if (this.y != this.player.y && 
-                this.y > this.player.y) {
-            this.up = true
-            }*/
+            // console.log(this.count)
 
             if (path.length > 0) {
                 if (this.nextMove.length > 0) {
                     this.nextMove.splice(this.nextMove[0])
                 }
 
+                console.log(path)
+                console.log(this.count)
+                
                 this.nextMove.push(path[path.length - this.count])
             } 
 
-            // console.log(this.end)
             console.log(this.nextMove)
-      
         }
-        
-        /*
-        for (let o = 2; o < path.length + 1; o++) {
-            this.i = path[path.length - o].i 
-            this.j = path[path.length - o].j 
-        }
-        */
-        
+
         this.x = this.i * this.size
         this.y = this.j * this.size
     }
